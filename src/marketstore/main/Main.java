@@ -13,8 +13,7 @@ public class Main {
     }
 
     /* Creating an instances of a cardholder and a discount card,
-    /* updating the turnover and printing an exemplary invoice.
-     */
+     * updating the turnover and printing an exemplary invoice. */
     public static void main(String[] args) {
         // Bronze
         Cardholder cardholder = new Cardholder("Sigizmund", "Krzhizhanovsky");

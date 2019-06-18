@@ -30,7 +30,6 @@ The application consists of:
      #
      * class **GoldCard** - subclass of Card, **currentRate** implements the following logic:
        * **initial** discount rate: **2 %**;
-       * rate in case of turnover **between $100 and $300**: **1 %**;
        * rate **growing for each $100** from the turnover with **2.5 %**, **capping at 10 %**;
 #
   * package _**paydesk**_:
