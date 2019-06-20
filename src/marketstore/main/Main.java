@@ -7,9 +7,17 @@ import marketstore.cards.GoldCard;
 import marketstore.cards.SilverCard;
 import marketstore.paydesk.PayDesk;
 
+import java.text.DecimalFormat;
+
 public class Main {
-    private static void printString(String s) {
-        System.out.print(s + "\n");
+    private static void printInvoice(int purchaseValue, Card card) {
+        DecimalFormat df = new DecimalFormat("#0.00");
+
+        System.out.println(card.getCardType() + ":\n"
+                + "Purchase value: $" + df.format(purchaseValue) + "\n"
+                + "Discount rate: " + df.format(PayDesk.discountRate(card)) + " %" + "\n"
+                + "Discount: $" + df.format(PayDesk.discount(purchaseValue, card)) + "\n"
+                + "Total: $" + df.format(PayDesk.total(purchaseValue, card)) + "\n");
     }
 
     /* Creating an instances of a cardholder and a discount card,
@@ -18,18 +26,18 @@ public class Main {
         // Bronze
         Cardholder cardholder = new Cardholder("Sigizmund", "Krzhizhanovsky");
         Card card = new BronzeCard(cardholder);
-        printString(PayDesk.invoice(150, card).toString());
+        printInvoice(150, card);
 
         // Silver
         cardholder = new Cardholder("Julio", "Cortazar");
         card = new SilverCard(cardholder);
         card.setTurnover(600);
-        printString(PayDesk.invoice(850, card).toString());
+        printInvoice(850, card);
 
         // Gold
         cardholder = new Cardholder("Hermann", "Hesse");
         card = new GoldCard(cardholder);
         card.setTurnover(1500);
-        printString(PayDesk.invoice(1300, card).toString());
+        printInvoice(1300, card);
     }
 }
